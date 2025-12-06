@@ -106,6 +106,30 @@ cc_prebuilt_library_shared {
     compile_multilib: "both",
 }
 
+cc_prebuilt_library_shared {
+    name: "libtinyxml2-v34",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    shared_libs: [
+        "liblog.so",
+        "libc++.so",
+        "libc.so",
+        "libm.so",
+        "libdl.so",
+    ],
+    target: {
+        android_arm: {
+            srcs: ["vndk/v34/arm/libtinyxml2-v34.so"],
+        },
+        android_arm64: {
+            srcs: ["vndk/v34/arm64/libtinyxml2-v34.so"],
+        },
+    },
+    compile_multilib: "both",
+}
+
 cc_library {
     name: "libbase_shim",
     shared_libs: ["libbase"],
